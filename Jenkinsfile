@@ -16,6 +16,16 @@ pipeline{
                 junit 'test-reports/results.xml'
             }
         }
-    }
+        }
+        stage('Deliver') { 
+            steps {
+                sh "python3 -m PyInstaller --onefile sources/add2vals.py" 
+            }
+            post {
+                success {
+                    archiveArtifacts 'dist/add2vals' 
+                }
+            }
+        }
     }
 }
