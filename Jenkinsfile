@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Test') {
         steps {
-            sh '/home/ubuntu/.local/lib/python3.10/site-packages/pytest --junit-xml test-reports/results.xml sources/test_calc.py'
+            sh 'sudo /home/ubuntu/.local/lib/python3.10/site-packages/pytest --junit-xml test-reports/results.xml sources/test_calc.py'
         }
         post {
             always {
